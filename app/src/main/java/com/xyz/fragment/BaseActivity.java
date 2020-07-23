@@ -7,11 +7,12 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * created by shenyonghui on 2020/7/21
  */
-public class BaseActivity extends Activity {
+public class BaseActivity extends AppCompatActivity {
 
 
     @Override

@@ -1,13 +1,14 @@
 package com.xyz.fragment;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 
 /**
@@ -40,6 +41,12 @@ public class BaseFragment extends Fragment {
     }
 
     @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.getInstance().logCurrentMethod(this.getClass());
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
         Log.getInstance().logCurrentMethod(this.getClass());
@@ -50,6 +57,7 @@ public class BaseFragment extends Fragment {
         super.onResume();
         Log.getInstance().logCurrentMethod(this.getClass());
     }
+
 
     @Override
     public void onPause() {

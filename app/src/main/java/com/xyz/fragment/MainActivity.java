@@ -1,12 +1,11 @@
 package com.xyz.fragment;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+import com.xyz.fragment.activity.DynamicAddFragmentActivity;
 import com.xyz.fragment.activity.StaticallyAddFragmentActivity;
 import com.xyz.fragment.weight.ClickItemView;
 
@@ -20,6 +19,7 @@ public class MainActivity extends BaseActivity {
     static {
         map = new LinkedHashMap<>();
         map.put("静态添加Fragment", StaticallyAddFragmentActivity.class);
+        map.put("动态添加Fragment", DynamicAddFragmentActivity.class);
 
     }
 
