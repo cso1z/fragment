@@ -1,4 +1,4 @@
-package com.xyz.fragment.weight;
+package com.example.menucontainer;
 
 import android.content.Context;
 import android.content.Intent;

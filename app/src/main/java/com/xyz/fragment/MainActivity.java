@@ -1,18 +1,19 @@
 package com.xyz.fragment;
 
 import android.os.Bundle;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
+import android.view.View;
 
+
+import com.example.menucontainer.*;
 import com.xyz.fragment.activity.DynamicAddFragmentActivity;
 import com.xyz.fragment.activity.StaticallyAddFragmentActivity;
-import com.xyz.fragment.weight.ClickItemView;
 
+
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private static Map<String, Class> map;
 
@@ -23,23 +24,40 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    Adapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ScrollView scrollView = new ScrollView(this);
-        scrollView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        setContentView(scrollView);
-        LinearLayout container = new LinearLayout(this);
-        container.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        container.setOrientation(LinearLayout.VERTICAL);
-        for (Map.Entry<String, Class> entry : map.entrySet()) {
-            String title = entry.getKey();
-            Class clazz = entry.getValue();
-            ClickItemView itemView = new ClickItemView(this);
-            itemView.setData(title, clazz);
-            itemView.requestLayout();
-            container.addView(itemView);
+        setContentView(R.layout.activity_main);
+        MenuContainer menuContainer = findViewById(R.id.menu);
+        adapter = new Adapter();
+        menuContainer.setAdapter(adapter);
+        adapter.setData(map);
+
+        findViewById(R.id.add).setOnClickListener(this);
+        findViewById(R.id.remove).setOnClickListener(this);
+
+    }
+
+    int i = 0;
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if (R.id.add == id) {
+            map.put("动态添加Fragment " + i, DynamicAddFragmentActivity.class);
+            i++;
+            adapter.notifyDataSetChanged();
+        } else if (R.id.remove == id) {
+            if (map == null || map.isEmpty()) {
+                return;
+            }
+            Iterator iterator = map.keySet().iterator();
+            if (iterator.hasNext()) {
+                map.remove(iterator.next());
+            }
+            adapter.notifyDataSetChanged();
         }
-        scrollView.addView(container);
     }
 }
