@@ -3,7 +3,7 @@ package com.xyz.fragment;
 /**
  * created by shenyonghui on 2020/7/21
  */
-public class Log {
+class Log {
     private long lastTime = 0;
     private String clazzName;
 
@@ -13,14 +13,14 @@ public class Log {
 
     private volatile static Log log;
 
-    public static Log getInstance() {
+    static Log getInstance() {
         if (log == null) {
             log = new Log();
         }
         return log;
     }
 
-    public void logCurrentMethod(Class clazz) {
+    void logCurrentMethod(Class clazz) {
         if (System.currentTimeMillis() - lastTime > 1000 && lastTime != 0) {
             if (clazz.getSimpleName().equals(clazzName)) {
                 log("||||||||||||||||" + clazz.getSimpleName() + "||||||||||||||||||||");

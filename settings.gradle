@@ -1,2 +1,3 @@
 rootProject.name='fragment'
 include ':app'
+include ':menucontainer'
