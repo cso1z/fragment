@@ -8,10 +8,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.xyz.fragment.BaseActivity;
 import com.xyz.fragment.R;
+import com.xyz.fragment.fragment.ExampleFragment1;
 
 /**
  * created by shenyonghui on 2020/7/23
- * 动态添加Fragment
+ * 在Activity动态添加Fragment
  */
 public class DynamicAddFragmentActivity extends BaseActivity {
     @Override
@@ -26,7 +27,7 @@ public class DynamicAddFragmentActivity extends BaseActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         //3. 创建需要添加的Fragment
-        ExampleFragment fragment = new ExampleFragment();
+        ExampleFragment1 fragment = new ExampleFragment1();
 
         //4. 动态添加Fragment(即将创建的fragment添加到Activity布局文件中定义的FrameLayout)
         fragmentTransaction.add(R.id.fragment, fragment);

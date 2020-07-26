@@ -14,6 +14,7 @@ import java.util.Map;
 public class MenuContainer extends ScrollView implements ChangeDataListener {
 
     private LinearLayout container;
+    private Adapter adapter;
 
     public MenuContainer(Context context) {
         super(context);
@@ -29,9 +30,6 @@ public class MenuContainer extends ScrollView implements ChangeDataListener {
         super(context, attrs, defStyleAttr);
         init();
     }
-
-
-    Adapter adapter;
 
     public void setAdapter(Adapter adapter) {
         this.adapter = adapter;

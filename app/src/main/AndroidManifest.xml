@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".activity.StaticallyAddFragmentActivity" />
         <activity android:name=".activity.DynamicAddFragmentActivity" />
+        <activity android:name=".activity.ReplaceFragmentActivity" />
+        <activity android:name=".activity.ActivityAndFragmentDataCommunicationActivity" />
     </application>
 
 </manifest>

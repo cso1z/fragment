@@ -13,6 +13,9 @@ public class Adapter {
     }
 
     public Adapter(Map<String, Class> dataResource) {
+        if (dataResource==null){
+            throw new IllegalStateException("dataResource should init");
+        }
         setData(dataResource);
     }
 
