@@ -19,6 +19,7 @@ public class BaseFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         Log.getInstance().logCurrentMethod(this.getClass());
+        //test
     }
 
     @Override
